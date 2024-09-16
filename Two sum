@@ -1,0 +1,123 @@
+1.Approach 
+-import java.util.Scanner;
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int res[] = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    res[0] = i;
+                    res[1] = j;
+                }
+            }
+        }
+        return res;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input array size
+        System.out.print("Enter the number of elements in the array: ");
+        int n = scanner.nextInt();
+
+        // Input array elements
+        int[] nums = new int[n];
+        System.out.println("Enter the array elements:");
+        for (int i = 0; i < n; i++) {
+            nums[i] = scanner.nextInt();
+        }
+
+        // Input target value
+        System.out.print("Enter the target value: ");
+        int target = scanner.nextInt();
+
+        // Create an object of Solution class and find twoSum
+        Solution solution = new Solution();
+        int[] result = solution.twoSum(nums, target);
+
+        // Output the result
+        if (result.length == 2) {
+            System.out.println("Indices of the two numbers that add up to the target: [" + result[0] + ", " + result[1] + "]");
+        } else {
+            System.out.println("No solution found.");
+        }
+
+        scanner.close();
+    }
+}
+
+
+
+
+2.second approach 
+-import java.util.Scanner;
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int res[] = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    res[0] = i;
+                    res[1] = j;
+                }
+            }
+        }
+        return res;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input array size
+        System.out.print("Enter the number of elements in the array: ");
+        int n = scanner.nextInt();
+
+        // Input array elements
+        int[] nums = new int[n];
+        System.out.println("Enter the array elements:");
+        for (int i = 0; i < n; i++) {
+            nums[i] = scanner.nextInt();
+        }
+
+        // Input target value
+        System.out.print("Enter the target value: ");
+        int target = scanner.nextInt();
+
+        // Create an object of Solution class and find twoSum
+        Solution solution = new Solution();
+        int[] result = solution.twoSum(nums, target);
+
+        // Output the result
+        if (result.length == 2) {
+            System.out.println("Indices of the two numbers that add up to the target: [" + result[0] + ", " + result[1] + "]");
+        } else {
+            System.out.println("No solution found.");
+        }
+
+        scanner.close();
+    }
+}
+
+3.rd appraoch
+-class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer,Integer> map= new HashMap<>();
+        //first pass to store the each number and its index
+        for(int i=0; i<nums.length; i++){
+            int complement = target-nums[i];
+             if(map.containsKey(complement)){
+                return new int[]{i,map.get(complement)};
+            }
+            map.put(nums[i], i);
+        }
+
+        return new int[0];
+    }
+}
